@@ -7,3 +7,19 @@
   .pie-chart:hover .pie-chart-label {
     display: block;
   }
+.MuiChartsLegend-root .MuiChartsLegend-series{
+    margin-left: 2rem !important;
+    display: block;
+    padding: 10px;
+    margin : 20px
+  } 
+
+.pi{
+    display:block;
+    text-align:justify;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 20px 0;
+    
+}
