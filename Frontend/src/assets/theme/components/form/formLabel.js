@@ -1,6 +1,6 @@
 
 
-// Soft UI Dashboard React base styles
+//  base styles
 import colors from "assets/theme/base/colors";
 
 const { dark } = colors;

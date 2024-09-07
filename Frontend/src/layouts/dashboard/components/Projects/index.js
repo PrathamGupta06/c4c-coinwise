@@ -8,7 +8,7 @@ import Icon from "@mui/material/Icon";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
-// Soft UI Dashboard React components
+//  components
 import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
 

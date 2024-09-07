@@ -1,11 +1,11 @@
 
 
-// Soft UI Dashboard React Base Styles
+//  Base Styles
 import colors from "assets/theme/base/colors";
 import borders from "assets/theme/base/borders";
 import boxShadows from "assets/theme/base/boxShadows";
 
-// Soft UI Dashboard React Helper Function
+//  Helper Function
 import rgba from "assets/theme/functions/rgba";
 
 const { black, white } = colors;

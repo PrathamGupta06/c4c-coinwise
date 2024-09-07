@@ -4,11 +4,11 @@
 import Card from "@mui/material/Card";
 import Icon from "@mui/material/Icon";
 
-// Soft UI Dashboard React components
+//  components
 import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
 
-// Soft UI Dashboard React examples
+//  examples
 import TimelineItem from "examples/Timeline/TimelineItem";
 
 function OrdersOverview() {

@@ -3,7 +3,7 @@
 // @mui material components
 import { styled } from "@mui/material/styles";
 
-// Soft UI Dashboard React components
+//  components
 import SoftButton from "components/SoftButton";
 
 export default styled(SoftButton)(({ theme, ownerState }) => {

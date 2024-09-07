@@ -3,7 +3,7 @@
 // @mui material components
 import Divider from "@mui/material/Divider";
 
-// Soft UI Dashboard React components
+//  components
 import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
 

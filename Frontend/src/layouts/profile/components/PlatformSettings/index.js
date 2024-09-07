@@ -6,7 +6,7 @@ import { useState } from "react";
 import Card from "@mui/material/Card";
 import Switch from "@mui/material/Switch";
 
-// Soft UI Dashboard React components
+//  components
 import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
 

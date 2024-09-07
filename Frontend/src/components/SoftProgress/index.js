@@ -5,7 +5,7 @@ import { forwardRef } from "react";
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
-// Soft UI Dashboard React components
+//  components
 import SoftTypography from "components/SoftTypography";
 
 // Custom styles for SoftProgress

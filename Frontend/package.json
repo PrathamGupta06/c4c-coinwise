@@ -1,9 +1,9 @@
 {
   "name": "synergy",
-  "version": "4.0.1",
-  "author": "Creative Tim",
+  "version": "1.0.0",
+  "author": "synergy",
   
-  "description": "ReactJS version of Soft UI Dashboard by Creative Tim",
+  "description": "A personal finance management webapp",
   "dependencies": {
     "@emotion/cache": "11.11.0",
     "@emotion/react": "11.11.0",

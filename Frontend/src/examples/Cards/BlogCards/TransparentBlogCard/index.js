@@ -12,7 +12,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Icon from "@mui/material/Icon";
 import MuiLink from "@mui/material/Link";
 
-// Soft UI Dashboard React components
+//  components
 import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
 

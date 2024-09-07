@@ -9,11 +9,11 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
-// Soft UI Dashboard React components
+//  components
 import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
 
-// Soft UI Dashboard React examples
+//  examples
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 
 import ProfileInfoCard from "examples/Cards/InfoCards/ProfileInfoCard";

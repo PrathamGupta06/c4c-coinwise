@@ -7,10 +7,10 @@ import PropTypes from "prop-types";
 import Menu from "@mui/material/Menu";
 // import Grid from "@mui/material/Grid";
 
-// Soft UI Dashboard React components
+//  components
 import SoftBox from "components/SoftBox";
 
-// Soft UI Dashboard React examples
+//  examples
 import DefaultNavbarLink from "examples/Navbars/DefaultNavbar/DefaultNavbarLink";
 
 function DefaultNavbarMobile({ open, close }) {

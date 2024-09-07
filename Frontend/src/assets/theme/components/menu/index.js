@@ -1,12 +1,12 @@
 
 
-// Soft UI Dashboard React base styles
+//  base styles
 import boxShadows from "assets/theme/base/boxShadows";
 import typography from "assets/theme/base/typography";
 import colors from "assets/theme/base/colors";
 import borders from "assets/theme/base/borders";
 
-// Soft UI Dashboard React helper functions
+//  helper functions
 import pxToRem from "assets/theme/functions/pxToRem";
 
 const { lg } = boxShadows;

@@ -1,7 +1,7 @@
 
 
 /* eslint-disable no-dupe-keys */
-// Soft UI Dashboard React base styles
+//  base styles
 import colors from "assets/theme/base/colors";
 
 const { gradients, dark } = colors;

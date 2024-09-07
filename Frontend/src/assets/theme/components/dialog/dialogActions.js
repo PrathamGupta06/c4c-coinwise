@@ -1,6 +1,6 @@
 
 
-// Soft UI Dashboard React helper functions
+//  helper functions
 import pxToRem from "assets/theme/functions/pxToRem";
 
 const dialogActions = {

@@ -1,6 +1,6 @@
 
 
-// Soft UI Dashboard React components
+//  components
 import SoftButton from "components/SoftButton";
 import SoftBox from "components/SoftBox";
 
