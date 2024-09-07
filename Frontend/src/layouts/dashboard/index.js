@@ -28,6 +28,8 @@ import OrderOverview from "layouts/dashboard/components/OrderOverview";
 
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
 import gradientLineChartData from "layouts/dashboard/data/gradientLineChartData";
+// import { PieChart } from "@mui/icons-material";
+import { PieChart } from "@mui/icons-material";
 
 function Dashboard() {
   const { size } = typography;
@@ -76,24 +78,27 @@ function Dashboard() {
             </Grid>
           </Grid>
         </SoftBox>
-        
+
         <SoftBox mb={3}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} lg={5}>
+          <Grid container spacing={0}>
+            
+
+            <Grid xs={9} lg={6} style={{ margin: "10px" }}>
+              
+
+            </Grid>
+            
+            <Grid xs={9} lg={5} style={{ margin: "10px" }} >
               <ReportsBarChart
-                title="Account Balance OverTime"
-                description={
-                  <>
-                    (<strong>+23%</strong>) than last week
-                  </>
-                }
+                title="Income Per Category"
                 chart={chart}
-                items={items}
+              // items={items}
               />
             </Grid>
-            <Grid item xs={12} lg={7}>
+            {/* </div> */}
+            <Grid item xs={12} lg={7} style={{ margin: "10px" }}>
               <GradientLineChart
-                title="Sales Overview"
+                title="Account Balance OverTime"
                 description={
                   <SoftBox display="flex" alignItems="center">
                     <SoftBox fontSize={size.lg} color="success" mb={0.3} mr={0.5} lineHeight={0}>
@@ -113,16 +118,9 @@ function Dashboard() {
             </Grid>
           </Grid>
         </SoftBox>
-        {/* <Grid container spacing={3}>
-          <Grid item xs={12} md={6} lg={8}>
-            <Projects />
-          </Grid>
-          <Grid item xs={12} md={6} lg={4}>
-            <OrderOverview />
-          </Grid>
-        </Grid> */}
+        
       </SoftBox>
-      
+
     </DashboardLayout>
   );
 }
