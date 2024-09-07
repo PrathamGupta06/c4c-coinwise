@@ -1,0 +1,9 @@
+/* Hide labels initially */
+.pie-chart-label {
+    display: none;
+  }
+  
+  /* Show labels on hover */
+  .pie-chart:hover .pie-chart-label {
+    display: block;
+  }

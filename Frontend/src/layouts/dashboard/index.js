@@ -3,9 +3,9 @@
 
 import Grid from "@mui/material/Grid";
 import Icon from "@mui/material/Icon";
-
+import './index.css';
 import { BarChart } from '@mui/x-charts/BarChart';
-// import { PieChart } from '@mui/x-charts/PieChart';
+import { PieChart } from '@mui/x-charts/PieChart';
 import { Typography } from "@mui/material";
 import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
@@ -17,7 +17,7 @@ import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import MiniStatisticsCard from "examples/Cards/StatisticsCards/MiniStatisticsCard";
 import ReportsBarChart from "examples/Charts/BarCharts/ReportsBarChart";
 import GradientLineChart from "examples/Charts/LineCharts/GradientLineChart";
-import PieChart from "examples/Charts/PieChart";
+// import PieChart from "examples/Charts/PieChart";
 
 
 import typography from "assets/theme/base/typography";
@@ -66,6 +66,7 @@ function Dashboard() {
 								count="₹45,000"
 								percentage={{ color: "error", text: "+3%" }}
 								icon={{ color: "info", component: "public" }}
+								
 							/>
 						</Grid>
 						<Grid item xs={12} sm={6} xl={3}>
@@ -99,37 +100,46 @@ function Dashboard() {
 								title="Income Per Category"
 								chart={chart}
 							/> */}
-							{/* <Card style={{ height: "100%" }}>
+							<Card style={{ height: "100%"  , width : "100%"}}>
 								<Typography variant="h6" style={{ textAlign: "start", margin: "10px" }}>Income Per Category</Typography>
 								<PieChart
-
 									series={[
 										{
 											data: [
-												{ id: 0, value: 10},
-												{ id: 1, value: 15},
-												{ id: 2, value: 20,},
-												{ id: 3, value: 20,},
-												{ id: 4, value: 20},
+												{ id: 0, value: 10, label: "", },
+												{ id: 1, value: 15, label: "", },
+												{ id: 2, value: 20, label: "",  },
+												{ id: 3, value: 20, label: "", },
+												{ id: 4, value: 20, label: "", },
 											],
+											
+											innerRadius: 30,
+											outerRadius: 100,
+											paddingAngle: 5,
+											cornerRadius: 5,
+											startAngle: -45,							
+											
 											highlightScope: { fade: 'global', highlight: 'item' },
 											faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
-											
+											tooltips: { type: 'item'}
 										},
+
 									]}
+									
+									
 									width={400}
 									height={200}
 								/>
-							</Card> */}
-							<PieChart
+							</Card>
+							{/* <PieChart
 								title="Income Per Category"
 								chart={chart}
-							/>
+							/> */}
 
 						</Grid>
 
 						<Grid xs={9} lg={6}  >
-							<Card style={{ height: "100%" }}>
+							<Card style={{ height: "100%" ,width : "100%"}}>
 								<Typography variant="h6" style={{ textAlign: "start", margin: "10px" }}>Payment Methods</Typography>
 								<BarChart
 									xAxis={[
@@ -149,7 +159,7 @@ function Dashboard() {
 								/>
 							</Card>
 						</Grid>
-						<Grid item xs={11} lg={11} style={{ margin: "10px" }}>
+						<Grid item xs={11} lg={6} style={{ margin: "10px", alignItems: "center" }}>
 							<GradientLineChart
 								title="Account Balance OverTime"
 								description={
