@@ -31,7 +31,7 @@ function PieChart({ title, description, height, chart }) {
             </SoftBox>
           )}
           <SoftBox mb={2}>
-            <SoftTypography component="div" variant="button" fontWeight="regular" color="text">
+            <SoftTypography component="div" variant="button" fontWeight="regular" color="red">
               {description}
             </SoftTypography>
           </SoftBox>

@@ -7,7 +7,7 @@ const reportsBarChartData = {
   },
   items: [
     {
-      icon: { color: "primary", component: "library_books" },
+      icon: { color: "danger", component: "library_books" },
       label: "users",
       progress: { content: "36K", percentage: 60 },
     },
