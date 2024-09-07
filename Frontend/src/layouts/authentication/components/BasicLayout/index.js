@@ -20,15 +20,7 @@ import PageLayout from "examples/LayoutContainers/PageLayout";
 function BasicLayout({ title, description, image, children }) {
   return (
     <PageLayout>
-      <DefaultNavbar
-        action={{
-          type: "external",
-          route: "https://creative-tim.com/product/soft-ui-dashboard-react",
-          label: "free download",
-        }}
-        transparent
-        light
-      />
+      
       <SoftBox
         width="calc(100% - 2rem)"
         minHeight="50vh"

@@ -91,15 +91,15 @@ const routes = [
     component: <SignUp />,
     noCollapse: true,
   },
-  {
-    type: "collapse",
-    name: "Upload",
-    key: "upload",
-    route: "/upload",
-    icon: <Shop size="12px" />,
-    component: <UploadPage/>,
-    noCollapse: true,
-  }
+  // {
+  //   type: "collapse",
+  //   name: "Upload",
+  //   key: "upload",
+  //   route: "/upload",
+  //   icon: <Shop size="12px" />,
+  //   component: <UploadPage/>,
+  //   noCollapse: true,
+  // }
 ];
 
 export default routes;

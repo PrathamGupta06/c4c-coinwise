@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useLocation, NavLink } from "react-router-dom";
 
 
+import Button from "@mui/material/Button";
 import PropTypes from "prop-types";
 
 
@@ -28,6 +29,7 @@ import sidenavLogoLabel from "examples/Sidenav/styles/sidenav";
 
 
 import { useSoftUIController, setMiniSidenav } from "context";
+import { Card } from "@mui/material";
 
 function Sidenav({ color, brand, brandName, routes, ...rest }) {
   const [controller, dispatch] = useSoftUIController();
@@ -141,7 +143,12 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
       </SoftBox>
       <Divider />
       <List>{renderRoutes}</List>
-      
+      <SoftBox flexGrow={1} >
+        <Card style={{marginTop: "25rem"}}>
+          <input type="file" id="upload" style={{display:"none"}}></input>
+          <Button style={{color: "black",fontSize: "0.8rem",width:"13rem",height:"3.3rem"}}><i className="fa-solid fa-upload" style={{marginRight:"1rem"}}></i><label htmlFor="upload">Upload</label></Button>
+        </Card>
+      </SoftBox>
       
     </SidenavRoot>
   );
