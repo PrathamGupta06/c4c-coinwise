@@ -212,7 +212,7 @@ function Dashboard() {
 								<Typography variant="h6" style={{ textAlign: "start", margin: "10px" }}>Fixed Memory Variable</Typography>
 								<BarChart
 									xAxis={[{ scaleType: 'band', data: ['Janurary', 'April', 'August', "December"] }]}
-									series={[{ data: [4, 3, 5, 4] }, { data: [1, 6, 3, 7] }, { data: [2, 5, 6, 7] },]}
+									series={[{ data: [4, 3, 5, 4] ,label: "fixed"}, { data: [1, 6, 3, 7],label: "necessary" }, { data: [2, 5, 6, 7] , label:"variable"}]}
 									width={1000}
 									height={300}
 								/>
