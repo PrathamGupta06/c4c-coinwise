@@ -6,9 +6,9 @@ import Icon from "@mui/material/Icon";
 import './index.css';
 import { BarChart } from '@mui/x-charts/BarChart';
 // import { PieChart } from 'react-minimal-pie-chart';
-// import { PieChart } from '@mui/x-charts/PieChart';
+import { PieChart } from '@mui/x-charts/PieChart';
 // import { LineChart } from "@mui/x-charts";
-import { Pie, Tooltip, PieChart, Cell } from "recharts";
+import { Pie, Tooltip, Cell } from "recharts";
 import { Typography } from "@mui/material";
 import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
@@ -70,12 +70,12 @@ function Dashboard() {
 	];
 	const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF6384', '#36A2EB'];
 	const categoryData = [
-		{ name: "Food", value: 10 },
-		{ name: "Education", value: 15 },
-		{ name: "Grocery", value: 20 },
-		{ name: "Medical", value: 20 },
-		{ name: "Bills and Recharges", value: 20 },
-		{ name: "Others", value: 35 },
+		{ label: "Food", value: 10 },
+		{ label: "Education", value: 15 },
+		{ label: "Grocery", value: 20 },
+		{ label: "Medical", value: 20 },
+		{ label: "Bills and Recharges", value: 20 },
+		{ label: "Others", value: 35 },
 	]
 	const data = [
 
@@ -92,6 +92,23 @@ function Dashboard() {
 		{ month: "November", value: 2.5 },
 		{ month: "December", value: 5.5 },
 	];
+	const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
+	const pData = [2400, 1398, 9800, 3908, 4800, 3800, 4300];
+	const xLabels = [
+		'JAN',
+		'FEB',
+		'MAR',
+		'APR',
+		'MAY',
+		'JUN',
+		'JUL',
+		'AUG',
+		'SEP',
+		'OCT',
+		'NOV',
+		'DEC',
+	];
+
 
 
 
@@ -103,7 +120,7 @@ function Dashboard() {
 					<Grid container spacing={3}>
 						<Grid item xs={12} sm={6} xl={3}>
 							<MiniStatisticsCard
-								title={{ text: "Cash Withdraw" }}
+								title={{ text: "Net Balance" }}
 								count="₹53,000"
 								// percentage={{ color: "success", text: "+55%" }}
 								icon={{ color: "info", component: "paid" }}
@@ -113,7 +130,7 @@ function Dashboard() {
 							<MiniStatisticsCard
 								title={{ text: "Liability" }}
 								count="₹45,000"
-								percentage={{ color: "error", text: "+3%" }}
+
 								icon={{ color: "info", component: "public" }}
 
 							/>
@@ -122,7 +139,7 @@ function Dashboard() {
 							<MiniStatisticsCard
 								title={{ text: "Assests" }}
 								count="₹3,462"
-								percentage={{ color: "success", text: "-2%" }}
+
 								icon={{ color: "info", component: "emoji_events" }}
 							/>
 						</Grid>
@@ -130,7 +147,7 @@ function Dashboard() {
 							<MiniStatisticsCard
 								title={{ text: "Expenses" }}
 								count="₹103,43"
-								percentage={{ color: "error", text: "+5%" }}
+
 								icon={{
 									color: "info",
 									component: "shopping_cart",
@@ -148,23 +165,19 @@ function Dashboard() {
 
 							<Card style={{ height: "100%", width: "100%" }}>
 								<Typography variant="h6" style={{ textAlign: "start", margin: "10px" }}>Total Expentiture</Typography>
-								<PieChart width={400} height={400}>
-									<Pie
-										data={categoryData}
-										cx={200}
-										cy={200}
-										labelLine={false}
-										outerRadius={80}
-										fill="#8884d8"
-										dataKey="value"
-									>
-										{pieData.map((entry, index) => (
-											<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-										))}
-									</Pie>
-									{/* <Tooltip formatter={TooltipFormatter} /> */}
-									<Legend />
-								</PieChart>
+								
+								<PieChart
+									series={[
+										{
+											data: categoryData,
+											outerRadius : 125,
+											highlightScope: { fade: 'global', highlight: 'item' },
+											faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' , outerRadius : 100 },
+											
+										},
+									]}
+									height={200}
+								/>
 
 							</Card>
 
@@ -193,6 +206,7 @@ function Dashboard() {
 
 							</Card>
 						</Grid>
+
 						<Grid xs={9} lg={11} style={{ margin: "5px" }}>
 							<Card style={{ height: "100%", width: "100%" }}>
 								<Typography variant="h6" style={{ textAlign: "start", margin: "10px" }}>Fixed Memory Variable</Typography>
@@ -205,65 +219,64 @@ function Dashboard() {
 
 							</Card>
 						</Grid>
-						<Grid item xs={11} lg={11} style={{ margin: "5px" }}>
-							{/* <GradientLineChart
-								title="Account Balance OverTime"
-								description={
-									<SoftBox display="flex" alignItems="center">
-										<SoftBox fontSize={size.lg} color="success" mb={0.3} mr={0.5} lineHeight={0}>
-											<Icon className="font-bold">arrow_upward</Icon>
-										</SoftBox>
-										<SoftTypography variant="button" color="text" fontWeight="medium">
-											4% more{" "}
-											<SoftTypography variant="button" color="text" fontWeight="regular">
-												in 2021
-											</SoftTypography>
-										</SoftTypography>
-									</SoftBox>
-								}
-								height="20.25rem"
-								chart={gradientLineChartData}
-							/> */}
-							<Grid item xs={11} lg={5} style={{ margin: "10px" }}>
-								<Card style={{ height: "100%", width: "100%" }}>
-									<SoftTypography variant="h6" style={{ textAlign: "start", margin: "10px" }}>Intrest Rate Over Year</SoftTypography>
-									<LineChart
-										style={{ marginTop: "10px" }}
-										width={350}
-										height={300}
-										data={data}
-										margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-									>
-										<CartesianGrid strokeDasharray="3 3" />
-										<XAxis dataKey="month" />
-										<YAxis />
-										<Tooltip />
-										<Legend />
-										<Line type="monotone" dataKey="value" stroke="#8884d8" activeDot={{ r: 8 }} />
-									</LineChart>
-								</Card>
-							</Grid>
-							<Grid item xs={11} lg={12} style={{ margin: "10px" }}>
-								<Card >
-									<SoftTypography variant="h6" style={{ textAlign: "start", margin: "10px" }}>Account Balance OverTime</SoftTypography>
-									<LineChart
-										style={{ marginTop: "10px" }}
-										width={1000}
-										height={300}
-										data={data}
-										margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-									>
-										<CartesianGrid strokeDasharray="3 3" />
-										<XAxis dataKey="month" />
-										<YAxis />
-										<Tooltip />
-										<Legend />
-										<Line type="monotone" dataKey="value" stroke="#8884d8" activeDot={{ r: 8 }} />
-									</LineChart>
 
-								</Card>
-							</Grid>
+
+						<Grid xs={9} lg={5} style={{ margin: "5px" }}>
+							<Card style={{ height: "100%", width: "100%" }}>
+								<Typography variant="h6" style={{ textAlign: "start", margin: "10px" }}>Saving Ratio</Typography>
+								<BarChart
+									width={200}
+									height={300}
+									series={[
+										{ data: pData, label: 'Expenditure', id: 'pvId', stack: 'total' },
+										{ data: uData, label: 'Savings', id: 'uvId', stack: 'total' },
+									]}
+									xAxis={[{ data: xLabels, scaleType: 'band' }]}
+								/>
+							</Card>
 						</Grid>
+
+						<Grid item xs={11} lg={6} style={{ margin: "5px" }}>
+							<Card style={{ height: "100%", width: "100%" }}>
+								<SoftTypography variant="h6" style={{ textAlign: "start", margin: "10px" }}>Intrest Rate Over Year</SoftTypography>
+								<LineChart
+									style={{ marginTop: "10px" }}
+									width={500}
+									height={300}
+									data={data}
+									margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+								>
+									<CartesianGrid strokeDasharray="3 3" />
+									<XAxis dataKey="month" />
+									<YAxis />
+									<Tooltip />
+									<Legend />
+									<Line type="monotone" dataKey="value" stroke="#8884d8" activeDot={{ r: 8 }} />
+								</LineChart>
+							</Card>
+						</Grid>
+
+						<Grid item xs={11} lg={12} style={{ margin: "10px" }}>
+							<Card >
+								<SoftTypography variant="h6" style={{ textAlign: "start", margin: "10px" }}>Account Balance OverTime</SoftTypography>
+								<LineChart
+									style={{ marginTop: "10px" }}
+									width={1000}
+									height={300}
+									data={data}
+									margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+								>
+									<CartesianGrid strokeDasharray="3 3" />
+									<XAxis dataKey="month" />
+									<YAxis />
+									<Tooltip />
+									<Legend />
+									<Line type="monotone" dataKey="value" stroke="#8884d8" activeDot={{ r: 8 }} />
+								</LineChart>
+
+							</Card>
+						</Grid>
+
 
 
 
