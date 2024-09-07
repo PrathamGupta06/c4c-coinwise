@@ -29,9 +29,9 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Tables",
-    key: "tables",
-    route: "/tables",
+    name: "Statements",
+    key: "statenments",
+    route: "/statements",
     icon: <Office size="12px" />,
     component: <Tables />,
     noCollapse: true,
