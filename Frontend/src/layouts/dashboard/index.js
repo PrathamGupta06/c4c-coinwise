@@ -128,6 +128,7 @@ function Dashboard() {
 						</Grid>
 						<Grid item xs={12} sm={6} xl={3}>
 							<MiniStatisticsCard
+							    
 								title={{ text: "Liability" }}
 								count="₹45,000"
 

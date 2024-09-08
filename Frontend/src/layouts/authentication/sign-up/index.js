@@ -1,6 +1,6 @@
 
 
-import { useState } from "react";
+// import { useState } from "react";
 
 // react-router-dom components
 import { Link } from "react-router-dom";
@@ -14,7 +14,7 @@ import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
 import SoftInput from "components/SoftInput";
 import SoftButton from "components/SoftButton";
-
+import { useState } from "react";
 // Authentication layout components
 import BasicLayout from "layouts/authentication/components/BasicLayout";
 import Socials from "layouts/authentication/components/Socials";
@@ -25,9 +25,9 @@ import curved6 from "assets/images/curved-images/curved14.jpg";
 
 function SignUp() {
   const [agreement, setAgremment] = useState(true);
-
+  let [days,setdays] = useState(0)
   const handleSetAgremment = () => setAgremment(!agreement);
-
+  
   return (
     <BasicLayout
       title="Welcome!"
@@ -55,6 +55,17 @@ function SignUp() {
             <SoftBox mb={2}>
               <SoftInput type="password" placeholder="Password" />
             </SoftBox>
+            <SoftTypography
+              style={{fontSize:"1rem",marginBottom: "10px",fontWeight:"500"}}
+              >
+                {/* Save For <input type="number" style={{width: "2rem",color:"black"}} value={days} onChange={(event)=>{setdays(event.target.value);}}/> days. */}
+               <label htmlFor="save" id="save"> Save For</label>
+               <select name="save" id="save" style={{backgroundColor:"white",border: "none",padding: "5px 5px 5px 5px"}}>
+                  <option value={days} onChange={(event)=>{setdays(event.target.value)}}>3</option>
+                  <option value="7">7</option>
+                  <option value="15">15</option>
+                </select> days.
+              </SoftTypography>
             <SoftBox display="flex" alignItems="center">
               <Checkbox checked={agreement} onChange={handleSetAgremment} />
               <SoftTypography
@@ -74,7 +85,9 @@ function SignUp() {
               >
                 Terms and Conditions
               </SoftTypography>
+              
             </SoftBox>
+            
             <SoftBox mt={4} mb={1}>
               <SoftButton variant="gradient" color="dark" fullWidth>
                 sign up
