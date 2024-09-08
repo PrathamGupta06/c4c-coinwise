@@ -5,7 +5,7 @@ import Billing from "layouts/billing";
 
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
-
+import Improvepage from "layouts/improvement/Improvepage";
 
 import Shop from "examples/Icons/Shop";
 import Office from "examples/Icons/Office";
@@ -34,6 +34,15 @@ const routes = [
     route: "/statements",
     icon: <Office size="12px" />,
     component: <Tables />,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "Insights",
+    key: "Insights",
+    route: "/insights",
+    icon: <Office size="12px" />,
+    component: <Improvepage />,
     noCollapse: true,
   },
   // {
