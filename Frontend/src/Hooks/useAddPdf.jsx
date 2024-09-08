@@ -3,31 +3,30 @@ import { useState } from 'react';
 
 function useAddPdf() {
     const [loading , setLoading] = useState(false);
-    try {
-        const addPdf = (pdf) => {
-            setLoading(true);
-            const formData = new FormData();
-            formData.append('pdf', pdf);
-            fetch('http://localhost:8000/api/pdf/', {
-                method: 'POST',
-                body: formData
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                })
-                .catch(error => {
-                    console.error(error);
-                });
+    
+        const addPdf = async (data) => {
+
+            try{
+                console.log(data);    
+                const res = await fetch('http://localhost:5000/upload_statement_pdf', {
+                    method: 'POST',
+                    body: data
+                }).then(response => response.json())
+                if(res.ok){
+                    console.log(res);
+                }
+                console.log(res);
+
+
+            }catch(error){
+                console.error(error);
+            }finally{
+                setLoading(false);
+            }
+            
         }
         
-    }catch(error){
-
-        console.error(error);
-
-    }finally{
-        setLoading(false);
-    }
+    
     return {loading, addPdf};
     
 }
