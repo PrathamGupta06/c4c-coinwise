@@ -30,7 +30,7 @@ import useAddPdf from "Hooks/useAddPdf";
 
 import { useSoftUIController, setMiniSidenav } from "context";
 import { Card } from "@mui/material";
-
+import { useNavigate } from "react-router-dom";
 function Sidenav({ color, brand, brandName, routes, ...rest }) {
 	const [controller, dispatch] = useSoftUIController();
 	const { miniSidenav, transparentSidenav } = controller;
@@ -39,6 +39,8 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
 	const collapseName = pathname.split("/").slice(1)[0];
 	const { loading, addPdf } = useAddPdf();
 	const closeSidenav = () => setMiniSidenav(dispatch, true);
+	
+	const navigate = useNavigate();
 
 	const fileHandler = async (e) => {
 		e.preventDefault();
@@ -55,14 +57,15 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
 		if (res.ok) {
 			console.log(res);
 		}
-		const jsonResponse = res;
+		// const jsonResponse = res;
 
 		// Convert the JSON response to a string
-		const jsonString = JSON.stringify(jsonResponse);
+		
 
 		// Store the stringified JSON response in local storage
-		localStorage.setItem("pdf", jsonString);
+		localStorage.setItem("pdf", "Available");
 		console.log(res);
+		navigate("/statements");
 	}
 
 	useEffect(() => {
@@ -73,7 +76,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
 
 
 		window.addEventListener("resize", handleMiniSidenav);
-
+	
 
 		handleMiniSidenav();
 

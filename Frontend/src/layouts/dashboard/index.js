@@ -14,36 +14,25 @@ import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
 
 
-import PropTypes from "prop-types";
+
 
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 
 import MiniStatisticsCard from "examples/Cards/StatisticsCards/MiniStatisticsCard";
-import ReportsBarChart from "examples/Charts/BarCharts/ReportsBarChart";
-import GradientLineChart from "examples/Charts/LineCharts/GradientLineChart";
-// import PieChart from "examples/Charts/PieChart";
+
 
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
-import typography from "assets/theme/base/typography";
 
 
 
 
-
-import OrderOverview from "layouts/dashboard/components/OrderOverview";
-
-
-import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
-import gradientLineChartData from "layouts/dashboard/data/gradientLineChartData";
 import { Card } from "@mui/material";
-import { Padding, PieChartOutlineRounded } from "@mui/icons-material";
-// import { PieChart } from "@mui/icons-material";
-// import { PieChart } from "@mui/icons-material";
+import { useState, useEffect } from "react";
 
 function Dashboard() {
-	const { size } = typography;
-	const { chart, items } = reportsBarChartData;
+	// const { size } = typography;
+	// const { chart, items } = reportsBarChartData;
 
 	// const pieData = {
 	// 	chart: {
@@ -59,41 +48,58 @@ function Dashboard() {
 	// 	{ name: 'Food', value: 200 },
 
 	// ];
+	const [isAuth, setIsAuth] = useState(false)
+	// const isAuth = localStorage.getItem("pdf")
+
+	useEffect(() => {
+		const checkAuth = () => {
+		  const storedData = localStorage.getItem("pdf");
+		  if (storedData) {
+			setIsAuth(true);
+		  } else {
+			setIsAuth(false);
+		  }
+		};
+	  
+		
+		checkAuth();
+	  }, []);
 
 	const pieData = [
-		{ name: "UPI", value: 400, details: "Unified Payments Interface" },
-		{ name: "Net Banking", value: 300, details: "Internet Banking" },
-		{ name: "NFT", value: 300, details: "Non-Fungible Token" },
-		{ name: "EMI", value: 200, details: "Equated Monthly Installment" },
-		{ name: "Credit Card", value: 278, details: "Credit Card Payments" },
-		{ name: "Debit Card", value: 189, details: "Debit Card Payments" },
+		{ name: "UPI", value: !isAuth ? 0 : 89, details: "Unified Payments Interface" },
+		{ name: "Net Banking", value: !isAuth ? 0 : 25, details: "Internet Banking" },
+		{ name: "NFT", value: !isAuth ? 0 : 23, details: "Non-Fungible Token" },
+		{ name: "EMI", value: !isAuth ? 0 : 6, details: "Equated Monthly Installment" },
+		{ name: "Credit Card", value: !isAuth ? 0 : 5, details: "Credit Card Payments" },
+		{ name: "Debit Card", value: !isAuth ? 0 : 15, details: "Debit Card Payments" },
 	];
-	const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF6384', '#36A2EB'];
+	// const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF6384', '#36A2EB'];
 	const categoryData = [
-		{ label: "Food", value: 10 },
-		{ label: "Education", value: 15 },
-		{ label: "Grocery", value: 20 },
-		{ label: "Medical", value: 20 },
-		{ label: "Bills and Recharges", value: 20 },
-		{ label: "Others", value: 35 },
+		{ label: "Food", value: !isAuth ? 0 : 2500 },
+		{ label: "Education", value: !isAuth ? 0 : 8000 },
+		{ label: "Grocery", value: !isAuth ? 0 : 4500 },
+		{ label: "Medical", value: !isAuth ? 0 : 15000 },
+		{ label: "Bills and Recharges", value: !isAuth ? 0 : 2200 },
+		{ label: "Others", value: !isAuth ? 0 : 5300 },
 	]
 	const data = [
 
-		{ month: "January", value: 3 },
-		{ month: "February", value: 5.5 },
-		{ month: "March", value: 2 },
-		{ month: "April", value: 8.5 },
-		{ month: "May", value: 1.5 },
-		{ month: "June", value: 5 },
-		{ month: "July", value: 3 },
-		{ month: "August", value: 7 },
-		{ month: "September", value: 4 },
-		{ month: "October", value: 6 },
-		{ month: "November", value: 2.5 },
-		{ month: "December", value: 5.5 },
+		{ month: "January", value: !isAuth ? 0 : 8 },
+		{ month: "February", value: !isAuth ? 0 : 9 },
+		{ month: "March", value: !isAuth ? 0 : 2 },
+		{ month: "April", value: !isAuth ? 0 : 3 },
+		{ month: "May", value: !isAuth ? 0 : 15 },
+		{ month: "June", value: !isAuth ? 0 : 51 },
+		{ month: "July", value: !isAuth ? 0 : 52 },
+		{ month: "August", value: !isAuth ? 0 : 17 },
+		{ month: "September", value: !isAuth ? 0 : 25 },
+		{ month: "October", value: !isAuth ? 0 : 53 },
+		{ month: "November", value: !isAuth ? 0 : 15 },
+		{ month: "December", value: !isAuth ? 0 : 12 },
 	];
-	const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490,3490, 3490, 3490, 3490, 3490];
-	const pData = [2400, 1398, 9800, 3908, 4800, 3800, 4300, 4300, 4300, 4300, 4300, 4300];
+
+	const uData = !isAuth ? [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110];
+	const pData = !isAuth ? [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : [23, 45, 67, 89, 90, 100, 120, 130, 140, 150, 160, 170];
 	const xLabels = [
 		'JAN',
 		'FEB',
@@ -108,6 +114,25 @@ function Dashboard() {
 		'NOV',
 		'DEC',
 	];
+	const paymentMethods = [
+		"UPI",
+		"Net Banking",
+		"NFT",
+		"EMI",
+		"Credit Card",
+		"Debit Card",
+	];
+
+
+
+
+	const series = [
+		{ data: isAuth ?  [10, 20, 30, 40] : [0,0,0,0], label: "fixed" },
+		{ data: isAuth ? [30 , 10 , 15 , 25] : [0,0,0,0], label: "necessary" },
+		{ data: isAuth ? [3 , 13 , 15 , 55] : [0,0,0,0], label: "variable" }
+	];
+
+
 
 
 
@@ -121,25 +146,24 @@ function Dashboard() {
 						<Grid item xs={12} sm={6} xl={3}>
 							<MiniStatisticsCard
 								title={{ text: "Net Balance" }}
-								count="₹53,000"
+								count={!isAuth ? "₹0" : "₹,305,699"}
 								// percentage={{ color: "success", text: "+55%" }}
 								icon={{ color: "info", component: "paid" }}
 							/>
 						</Grid>
 						<Grid item xs={12} sm={6} xl={3}>
 							<MiniStatisticsCard
-							    
+
 								title={{ text: "Liability" }}
-								count="₹45,000"
+								count={!isAuth ? "₹0" : "₹14,800"}
 
 								icon={{ color: "info", component: "public" }}
-
 							/>
 						</Grid>
 						<Grid item xs={12} sm={6} xl={3}>
 							<MiniStatisticsCard
 								title={{ text: "Assests" }}
-								count="₹3,462"
+								count={!isAuth ? "₹0" : "₹2,55,000"}
 
 								icon={{ color: "info", component: "emoji_events" }}
 							/>
@@ -147,7 +171,7 @@ function Dashboard() {
 						<Grid item xs={12} sm={6} xl={3}>
 							<MiniStatisticsCard
 								title={{ text: "Expenses" }}
-								count="₹103,43"
+								count={!isAuth ? "₹0" : "₹19,500"}
 
 								icon={{
 									color: "info",
@@ -157,24 +181,21 @@ function Dashboard() {
 						</Grid>
 					</Grid>
 				</SoftBox>
-
 				<SoftBox mb={3}>
 					<Grid container spacing={0}>
 
-
 						<Grid xs={9} lg={5} style={{ margin: "5px" }}>
-
 							<Card style={{ height: "100%", width: "100%" }}>
 								<Typography variant="h6" style={{ textAlign: "start", margin: "10px" }}>Total Expentiture</Typography>
-								
+
 								<PieChart
 									series={[
 										{
 											data: categoryData,
-											outerRadius : 125,
+											outerRadius: 125,
 											highlightScope: { fade: 'global', highlight: 'item' },
-											faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' , outerRadius : 100 },
-											
+											faded: { innerRadius: 30, additionalRadius: -30, color: 'gray', outerRadius: 100 },
+
 										},
 									]}
 									height={200}
@@ -191,13 +212,13 @@ function Dashboard() {
 									xAxis={[
 										{
 											id: 'barCategories',
-											data: ["UPI", "Net Banking", "NFT", "EMI", "Credit Card", "DebitCard"],
+											data: paymentMethods,
 											scaleType: "band",
 										},
 									]}
 									series={[
 										{
-											data: [50, 70, 30, 15, 25, 5],
+											data: isAuth ? [10, 20, 30, 40, 50, 60] : [0, 0, 0, 0, 0, 0],
 										},
 									]}
 									width={600}
@@ -213,15 +234,13 @@ function Dashboard() {
 								<Typography variant="h6" style={{ textAlign: "start", margin: "10px" }}>Fixed Memory Variable</Typography>
 								<BarChart
 									xAxis={[{ scaleType: 'band', data: ['Janurary', 'April', 'August', "December"] }]}
-									series={[{ data: [4, 3, 5, 4] ,label: "fixed"}, { data: [1, 6, 3, 7],label: "necessary" }, { data: [2, 5, 6, 7] , label:"variable"}]}
+									series={series}
 									width={1000}
 									height={300}
 								/>
 
 							</Card>
 						</Grid>
-
-
 						<Grid xs={9} lg={5} style={{ margin: "5px" }}>
 							<Card style={{ height: "100%", width: "100%" }}>
 								<Typography variant="h6" style={{ textAlign: "start", margin: "10px" }}>Saving Ratio</Typography>
@@ -274,17 +293,10 @@ function Dashboard() {
 									<Legend />
 									<Line type="monotone" dataKey="value" stroke="#8884d8" activeDot={{ r: 8 }} />
 								</LineChart>
-
 							</Card>
 						</Grid>
-
-
-
-
 					</Grid>
-
 				</SoftBox>
-
 			</SoftBox>
 
 		</DashboardLayout>

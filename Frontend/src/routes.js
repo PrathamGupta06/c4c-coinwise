@@ -16,6 +16,8 @@ import SpaceShip from "examples/Icons/SpaceShip";
 import CreditCard from "examples/Icons/CreditCard";
 import UploadPage from "layouts/upload/UploadPage";
 
+import ChatBot from "layouts/chat/ChatBot";
+
 
 const routes = [
   {
@@ -44,6 +46,14 @@ const routes = [
     icon: <Office size="12px" />,
     component: <Improvepage />,
     noCollapse: true,
+  },
+  {
+    type:"collapse",
+    name:"Chatbot",
+    key:"chatbot",
+    route:"/chatbot",
+    icon:<Shop size="12px" />,
+    component: <ChatBot />,
   },
   // {
   //   type: "collapse",
@@ -109,6 +119,7 @@ const routes = [
   //   component: <UploadPage/>,
   //   noCollapse: true,
   // }
+  
 ];
 
 export default routes;

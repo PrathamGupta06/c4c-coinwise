@@ -83,7 +83,14 @@ function DashboardNavbar({ absolute, light, isMini }) {
   const handleOpenMenu = (event) => setOpenMenu(event.currentTarget);
   const handleCloseMenu = () => setOpenMenu(false);
 
-  
+  const isAuth = localStorage.getItem("pdf");
+
+  const handleLogout = () => {
+    localStorage.removeItem("pdf");
+    
+  }
+
+
   const renderMenu = () => (
     <Menu
       anchorEl={openMenu}
@@ -149,7 +156,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
                     fontWeight="medium"
                     color={light ? "white" : "dark"}
                   >
-                    Sign in
+                    {!isAuth ? "Sign In" : <button onClick={handleLogout}>Logout</button>}
                   </SoftTypography>
                 </IconButton>
               </Link>

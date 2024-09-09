@@ -44,9 +44,12 @@ function Tables() {
     return {
       date: row.date,
       narration: row.narration,
+      payment_method : row.payment_method,
+      category : row.category,
       withdrawal_amount: row.withdrawal_amount,
       deposit_amount: row.deposit_amount,
-      closing_balance: row.closing_balance
+      closing_balance: row.closing_balance,
+      payment_method: row.payment_method,
     }
   });
   const coloumn = ["Data", "Narration", "withdrawal_amount", "deposit_amount", "closing_balance"];
@@ -79,6 +82,8 @@ function Tables() {
                       <TableCell></TableCell>
                       <TableCell align="left">Date</TableCell>
                       <TableCell align="left">Narration</TableCell>
+                      <TableCell align="left">Payment Method</TableCell>
+                      <TableCell align="left">Category</TableCell>
                       <TableCell align="left">Withdrawal Amount&nbsp;(g)</TableCell>
                       <TableCell align="left">Deposit Amount</TableCell>
                       <TableCell align="left">Closing Balance</TableCell>
@@ -93,6 +98,8 @@ function Tables() {
                         </TableCell>
                         <TableCell align="left">{row.date}</TableCell>
                         <TableCell align="left">{row.narration}</TableCell>
+                        <TableCell align="left">{row.payment_method}</TableCell>
+                        <TableCell align="left">{row.category}</TableCell>
                         <TableCell align="left">{row.withdrawal_amount}</TableCell>
                         <TableCell align="left">{row.deposit_amount}</TableCell>
                         <TableCell align="left">{row.closing_balance}</TableCell>

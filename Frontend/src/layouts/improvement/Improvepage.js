@@ -105,12 +105,12 @@ function Improvepage() {
           
           
         </Card>
-        <Card style={{width: "50%",margin: "10px"}}>
+        {/* <Card style={{width: "50%",margin: "10px"}}>
           <SoftBox px={2} py={5}>
           <SoftTypography variant="h4">Booming Stocks</SoftTypography>
           </SoftBox>
           
-        </Card>
+        </Card> */}
 
         </div>
 
